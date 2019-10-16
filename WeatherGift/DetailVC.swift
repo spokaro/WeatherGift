@@ -10,10 +10,21 @@ import UIKit
 
 class DetailVC: UIViewController {
 
+    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var LocationLabel: UILabel!
+    @IBOutlet weak var TemperatureLabel: UILabel!
+    @IBOutlet weak var SummaryLabel: UILabel!
+    @IBOutlet weak var CurrentImage: UIImageView!
+    
+    var currentPage = 0
+    var locationsArray = [String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+        
+        LocationLabel.text = locationsArray[currentPage]
+        
+}
     
 }
