@@ -102,7 +102,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lP4-hy-bTM">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Edit" id="Mbj-eO-jFV"/>
+                                    <barButtonItem title="Edit" id="Mbj-eO-jFV">
+                                        <connections>
+                                            <action selector="EditBarButtonPressed:" destination="piQ-4G-hyH" id="E7Q-me-gdU"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="G62-ac-uGj"/>
                                     <barButtonItem systemItem="add" id="QUS-PA-BCM">
                                         <connections>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GooglePlaces
 
 class ListVC: UIViewController {
 
@@ -31,7 +32,7 @@ class ListVC: UIViewController {
             destination.locationsArray = locationsArray
         }
     }
-    @IBAction func AddBarButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func EditBarButtonPressed(_ sender: UIBarButtonItem) {
         if tableView.isEditing == true {
             tableView.setEditing(false, animated: true)
             EditBarButton.title = "Edit"
@@ -41,6 +42,11 @@ class ListVC: UIViewController {
             EditBarButton.title = "Done"
             AddBarButton.isEnabled = false
         }
+    }
+    @IBAction func AddBarButtonPressed(_ sender: UIBarButtonItem) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
     }
     
 }
@@ -76,5 +82,39 @@ extension ListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         return (proposedDestinationIndexPath.row == 0 ? sourceIndexPath : proposedDestinationIndexPath)
-    }  
+    }
+    func updateTable(place: GMSPlace){
+        let newIndexPath = IndexPath(row: locationsArray.count, section: 0)
+        locationsArray.append(place.name!)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
+}
+extension ListVC: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place name: \(place.name)")
+        dismiss(animated: true, completion: nil)
+        updateTable(place: place)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }
