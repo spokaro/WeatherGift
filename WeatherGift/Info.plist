@@ -41,5 +41,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>app will need location to find local weather</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>app will need location to find local weather</string>
 </dict>
 </plist>

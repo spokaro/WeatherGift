@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DetailVC: UIViewController {
 
@@ -18,6 +19,8 @@ class DetailVC: UIViewController {
     
     var currentPage = 0
     var locationsArray = [WeatherLocation]()
+    var locationManager: CLLocationManager!
+    var currentLocation: CLLocation!
     
     
     override func viewDidLoad() {
@@ -26,5 +29,23 @@ class DetailVC: UIViewController {
         LocationLabel.text = locationsArray[currentPage].name
         DateLabel.text = locationsArray[currentPage].coordinates
 }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if currentPage == 0 {
+            getLocation()
+        }
+    }
+}
+extension DetailVC: CLLocationManagerDelegate {
+    func getLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        
+    }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("failed to load location")
+    }
 }
