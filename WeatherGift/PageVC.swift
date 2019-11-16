@@ -10,6 +10,11 @@ import UIKit
 
 class PageVC: UIPageViewController {
     
+    struct WeatherLocation {
+        var name = ""
+        var coordinates = ""
+    }
+    
     var currentPage = 0
     var locationsArray = [WeatherLocation]()
     var pageControl: UIPageControl!
