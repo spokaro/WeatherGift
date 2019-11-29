@@ -16,6 +16,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var TemperatureLabel: UILabel!
     @IBOutlet weak var SummaryLabel: UILabel!
     @IBOutlet weak var CurrentImage: UIImageView!
+    @IBOutlet weak var TableView: UITableView!
     
     var currentPage = 0
     var locationsArray = [WeatherLocation]()
@@ -25,6 +26,8 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        TableView.delegate = self
+        TableView.dataSource = self
          if currentPage == 0 {
             updateUserInterface()
         }
@@ -106,5 +109,19 @@ extension DetailVC: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("failed to load location")
+    }
+}
+extension DetailVC: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = TableView.dequeueReusableCell(withIdentifier: "DayWeatherCell", for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
