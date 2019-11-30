@@ -18,12 +18,12 @@ class ListVC: UIViewController {
     var locationsArray = [WeatherLocation]()
     var currentPage = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToPageVC" {
             let destination = segue.destination as! PageVC
