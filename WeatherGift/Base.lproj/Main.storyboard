@@ -10,6 +10,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--AboutVC-->
+        <scene sceneID="Nb9-Md-98p">
+            <objects>
+                <viewController id="UGG-xG-Erz" customClass="AboutVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J0U-TB-rpW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivE-qM-QPp">
+                                <rect key="frame" x="16" y="617" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="UGG-xG-Erz" eventType="touchUpInside" id="WHO-Xw-kY9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="WeatherGift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkZ-jD-HF9">
+                                <rect key="frame" x="16" y="56" width="343" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="C0n-1F-i8I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="rain" translatesAutoresizingMaskIntoConstraints="NO" id="HFF-F1-SWJ">
+                                <rect key="frame" x="16" y="108" width="343" height="316"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Made by Andres de la Cruz" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbH-qX-GeE">
+                                <rect key="frame" x="16" y="432" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BoY-oR-MU6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="powered-by-google-on-white" translatesAutoresizingMaskIntoConstraints="NO" id="ZJe-mM-Bfa">
+                                <rect key="frame" x="146" y="500" width="213" height="71"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="poweredbydarksky" translatesAutoresizingMaskIntoConstraints="NO" id="Un0-JS-n4X">
+                                <rect key="frame" x="16" y="500" width="122" height="71"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="a6i-fC-Ro0"/>
+                                    <constraint firstAttribute="height" constant="71" id="lPq-Sp-Xck"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Un0-JS-n4X" firstAttribute="top" secondItem="ZJe-mM-Bfa" secondAttribute="top" id="0I1-85-jow"/>
+                            <constraint firstItem="WkZ-jD-HF9" firstAttribute="leading" secondItem="HFF-F1-SWJ" secondAttribute="leading" id="57n-rj-hek"/>
+                            <constraint firstItem="HFF-F1-SWJ" firstAttribute="top" secondItem="WkZ-jD-HF9" secondAttribute="bottom" constant="8" symbolic="YES" id="5N1-zu-vsl"/>
+                            <constraint firstItem="HFF-F1-SWJ" firstAttribute="leading" secondItem="UbH-qX-GeE" secondAttribute="leading" id="Bxj-DZ-Eir"/>
+                            <constraint firstItem="UbH-qX-GeE" firstAttribute="leading" secondItem="Un0-JS-n4X" secondAttribute="leading" id="DyA-fm-0Oe"/>
+                            <constraint firstItem="ZJe-mM-Bfa" firstAttribute="leading" secondItem="Un0-JS-n4X" secondAttribute="trailing" constant="8" symbolic="YES" id="QF9-ok-UC4"/>
+                            <constraint firstItem="Un0-JS-n4X" firstAttribute="bottom" secondItem="ZJe-mM-Bfa" secondAttribute="bottom" id="Sdg-t0-UBW"/>
+                            <constraint firstItem="UbH-qX-GeE" firstAttribute="top" secondItem="HFF-F1-SWJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Zaj-bk-abq"/>
+                            <constraint firstItem="WkZ-jD-HF9" firstAttribute="trailing" secondItem="HFF-F1-SWJ" secondAttribute="trailing" id="fou-KJ-9nM"/>
+                            <constraint firstItem="Un0-JS-n4X" firstAttribute="top" secondItem="UbH-qX-GeE" secondAttribute="bottom" constant="8" symbolic="YES" id="rpf-mw-rv6"/>
+                            <constraint firstItem="HFF-F1-SWJ" firstAttribute="trailing" secondItem="UbH-qX-GeE" secondAttribute="trailing" id="ujp-A2-t9s"/>
+                            <constraint firstItem="UbH-qX-GeE" firstAttribute="trailing" secondItem="ZJe-mM-Bfa" secondAttribute="trailing" id="zNA-3e-cg4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3pG-vw-5ij"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q88-wd-Kes" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-594" y="114"/>
+        </scene>
         <!--DetailVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -128,7 +200,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bBW-qD-PmB">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HourlyCell" id="bBW-qD-PmB" customClass="HourlyWeatherCell" customModule="WeatherGift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -153,7 +225,7 @@
                                                     <rect key="frame" x="20" y="20" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VO2-g1-1PQ">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="raindrop" translatesAutoresizingMaskIntoConstraints="NO" id="VO2-g1-1PQ">
                                                     <rect key="frame" x="60" y="25" width="8" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -166,6 +238,13 @@
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="hourlyIcon" destination="WWG-57-y76" id="Xen-Nl-cVG"/>
+                                            <outlet property="hourlyPrecipProb" destination="uA1-6a-f0O" id="btF-gp-EbL"/>
+                                            <outlet property="hourlyTemp" destination="QmJ-yW-GVI" id="Vkf-BU-b5Y"/>
+                                            <outlet property="hourlyTime" destination="eWp-iK-JQQ" id="HL6-UT-5MZ"/>
+                                            <outlet property="rainDropImage" destination="VO2-g1-1PQ" id="Kfx-Pq-dEc"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -204,6 +283,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="WAq-fB-7HW" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="piQ-4G-hyH" kind="presentation" identifier="ToListVC" id="Gxp-KK-d1u"/>
+                        <segue destination="UGG-xG-Erz" kind="presentation" id="znm-Rl-LND"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlr-a3-A5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -276,4 +356,10 @@
             <point key="canvasLocation" x="937" y="-541"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="powered-by-google-on-white" width="144" height="18"/>
+        <image name="poweredbydarksky" width="1904" height="759"/>
+        <image name="rain" width="132" height="124"/>
+        <image name="raindrop" width="18" height="20"/>
+    </resources>
 </document>

@@ -18,6 +18,3 @@ extension TimeInterval {
         return dateString
     }
 }
-
-let dateString = location.currentTime.format(timeZone: location.timeZone,
-                                             dateFormatter: dateFormatter)
